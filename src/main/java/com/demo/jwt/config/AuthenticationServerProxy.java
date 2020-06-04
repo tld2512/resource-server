@@ -1,6 +1,6 @@
 package com.demo.jwt.config;
 
-import com.demo.jwt.model.UserAuthentication;
+import com.demo.jwt.model.authentication.UserAuthentication;
 import lombok.var;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

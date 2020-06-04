@@ -2,6 +2,7 @@ package com.demo.jwt.config;
 
 import com.demo.jwt.filter.InitialAuthenticationFilter;
 import com.demo.jwt.filter.JwtAuthenticationFilter;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -61,5 +62,10 @@ public class ApplicationConfig extends WebSecurityConfigurerAdapter {
     @Bean
     protected AuthenticationManager authenticationManager() throws Exception {
         return super.authenticationManager();
+    }
+
+    @Bean
+    public ModelMapper modelMapper(){
+        return new ModelMapper();
     }
 }

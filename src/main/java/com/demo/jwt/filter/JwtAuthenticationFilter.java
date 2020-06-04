@@ -28,8 +28,12 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
-        String jwt = httpServletRequest.getHeader("Authorization");
+        String authHeader = httpServletRequest.getHeader("Authorization");
+        String jwt = null;
         SecretKey key = Keys.hmacShaKeyFor(signingKey.getBytes(StandardCharsets.UTF_8));
+        if (authHeader != null && authHeader.startsWith("Bearer ")) {
+            jwt = authHeader.replace("Bearer ", "");
+        }
         Claims claims = Jwts.parserBuilder()
                 .setSigningKey(key)
                 .build()

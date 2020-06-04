@@ -1,4 +1,4 @@
-package com.demo.jwt.model;
+package com.demo.jwt.model.authentication;
 
 import lombok.Data;
 
